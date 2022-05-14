@@ -1,30 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
-function Feed() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Feed Screen</Text>
-    </View>
-  );
-}
-
-function Article() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Article Scrs</Text>
-    </View>
-  );
-}
+import HomeNavigator from "../screens/DrawerTabScreens/HomeNavigator";
+import SettingsNavigator from "../screens/DrawerTabScreens/SettingsNavigator";
+import PrivacyNavigator from "../screens/DrawerTabScreens/PrivacyNavigator";
+import ProfileNavigator from "../screens/DrawerTabScreens/ProfileNavigator";
+import BottomTabNavigator from "./BottomTabNavigator";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator useLegacyImplementation>
-      <Drawer.Screen name="Feed" component={Feed} />
-      <Drawer.Screen name="Article" component={Article} />
+      <Drawer.Screen name="HomeTabs" component={BottomTabNavigator} />
+      <Drawer.Screen name="Settings" component={SettingsNavigator} />
+      <Drawer.Screen name="Privacy" component={PrivacyNavigator} />
+      <Drawer.Screen name="Profile" component={ProfileNavigator} />
     </Drawer.Navigator>
   );
 };

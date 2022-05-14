@@ -17,7 +17,7 @@ const HomeNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };

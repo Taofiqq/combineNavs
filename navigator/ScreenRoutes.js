@@ -1,0 +1,17 @@
+export const screens = {
+  HomeTabs: "HomeTabs",
+  Home: "Home",
+  HomeNav: "HomeNav",
+  Shop: "Shop",
+  ShopScreen: "ShopScreen",
+  Explore: "Explore",
+  ExploreScreen: "ExploreScreen",
+  Payment: "Payment",
+  PaymentScreen: "PaymentScreen",
+  Profile: "Profile",
+  ProfileScreen: "ProfileScreen",
+  Settings: "Settings",
+  SettingsScreen: "SettingsScreen",
+  Privacy: "Privacy",
+  PrivacyScreen: "PrivacyScreen",
+};

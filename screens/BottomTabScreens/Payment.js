@@ -17,7 +17,7 @@ const PaymentNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="PaymentScreen" component={Payment} />
+      <Stack.Screen name="Payment" component={Payment} />
     </Stack.Navigator>
   );
 };

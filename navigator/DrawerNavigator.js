@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text } from "react-native";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -8,73 +8,62 @@ import {
 import HomeNavigator from "../screens/DrawerTabScreens/HomeNavigator";
 import SettingsNavigator from "../screens/DrawerTabScreens/SettingsNavigator";
 import PrivacyNavigator from "../screens/DrawerTabScreens/PrivacyNavigator";
-import ProfileNavigator from "../screens/DrawerTabScreens/ProfileNavigator";
 import BottomTabNavigator from "./BottomTabNavigator";
+import { routes, screens } from "./ScreenRoutes";
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawerContent = (props) => {
   return (
     <DrawerContentScrollView {...props}>
-      {Object.entries(props.descriptors).map(([key, descriptor], index) => {
-        console.log(descriptor.route.name);
-        const focused = index === props.state.index;
-        return (
-          <DrawerItem
-            key={key}
-            label={() => (
-              <Text
-                style={{
-                  color: focused ? "lavender" : "black",
-                }}
-              >
-                {descriptor.options.title}
-              </Text>
-            )}
-            onPress={() =>
-              descriptor.navigation.navigate(descriptor.route.name)
-            }
-          />
-        );
-      })}
+      {routes
+        .filter((route) => route.showInDrawer)
+        .map((route, index) => {
+          return (
+            <DrawerItem
+              key={index}
+              label={() => (
+                <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+                  {route.title}
+                </Text>
+              )}
+              onPress={() => props.navigation.navigate(route.name)}
+            />
+          );
+        })}
     </DrawerContentScrollView>
   );
 };
-
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
       useLegacyImplementation
+      screenOptions={{
+        drawerType: "front",
+      }}
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen
-        name="HomeTabs"
+        name={screens.HomeTabs}
         component={BottomTabNavigator}
         options={{
           title: "Home",
         }}
       />
-      <Drawer.Screen
-        name="Settings"
+      {/* <Drawer.Screen
+        name="SettingsNavigator"
         component={SettingsNavigator}
         options={{
           title: "Settings",
         }}
       />
       <Drawer.Screen
-        name="Privacy"
+        name="PrivacyNavigator"
         component={PrivacyNavigator}
         options={{
           title: "Privacy",
         }}
-      />
-      <Drawer.Screen
-        name="Profile"
-        component={ProfileNavigator}
-        options={{
-          title: "Profile",
-        }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 };

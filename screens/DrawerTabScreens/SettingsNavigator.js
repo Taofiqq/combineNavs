@@ -17,7 +17,7 @@ const SettingsNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="SettingsScreen" component={Settings} />
+      <Stack.Screen name="Settings" component={Settings} />
     </Stack.Navigator>
   );
 };

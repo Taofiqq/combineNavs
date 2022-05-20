@@ -17,7 +17,7 @@ const PrivacyNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="PrivacyScreen" component={Privacy} />
+      <Stack.Screen name="Privacy" component={Privacy} />
     </Stack.Navigator>
   );
 };

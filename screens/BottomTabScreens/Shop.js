@@ -17,7 +17,7 @@ const ShopNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="ShopScreen" component={Shop} />
+      <Stack.Screen name="Shop" component={Shop} />
     </Stack.Navigator>
   );
 };

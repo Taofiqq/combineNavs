@@ -17,7 +17,7 @@ const ExploreNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="ExploreScreen" component={Explore} />
+      <Stack.Screen name="Explore" component={Explore} />
     </Stack.Navigator>
   );
 };
